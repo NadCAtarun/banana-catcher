@@ -4,7 +4,7 @@
 ### Introduction
 
 The goal of this project is to use Deep Reinforcement Learning
-to train an agent to navigate in a large, square world featuring
+to train an agent to navigate a large, square world featuring
 blue (bad) and yellow (good) collectible bananas.
 The environment the agent deals with was provided by [Udacity](https://www.udacity.com/)
 as part of the [Deep Reinforcement Learning Nanodegree Program](https://www.udacity.com/course/deep-reinforcement-learning-nanodegree--nd893)
@@ -18,7 +18,7 @@ The agent is rewarded as follows:
 - **`0`** when the agent is not collecting anything
 
 Since the goal is to maximize cumulative reward (i.e. score)
-over an episode (which is a fixed number of steps),
+over an episode (which is a fixed number of about 300 steps),
 the agent will learn to collect yellow bananas as quickly as possible
 while avoiding blue bananas.
 
@@ -37,8 +37,7 @@ simply dismiss the action, but the corresponding action remains available.
 
 The agent perceives the environment through a state vector that has 37 dimensions.
 This state information contains the agent's velocity as well as
-ray-based perception of objects around the agent's forward direction
-(in other words, the objects in front of the agent).
+ray-based perception of objects around the agent's forward direction.
 
 #### Benchmark goal
 
@@ -47,8 +46,9 @@ a score greater than or equal to `+13` (averaged over `100` episodes).
 
 ### Setup
 
-To run this project, you first need to install the [Anaconda Distribution](https://www.anaconda.com/distribution/)
-including Jupyter Notebook.
+#### Anaconda Environment
+
+To run this project, you first need to install the [Anaconda Distribution](https://www.anaconda.com/distribution/).
 
 In the **Anaconda Prompt**,
 create an environment for the project with the following command:
@@ -61,6 +61,14 @@ Activate the environment with the following command
 ```shell script
 activate banana
 ```
+
+#### PyTorch
+
+Follow the [instructions from the PyTorch official website](https://pytorch.org/)
+to install a PyTorch version that matches both your operating system and
+your CUDA installation (if you want to use the GPU acceleration).
+
+#### Requirements
 
 If you have not done it already, clone this project with the following command:
 ```shell script
@@ -75,11 +83,21 @@ to install the required packages:
 pip install -r requirements.txt
 ```
 
+**Note**: PyTorch was purposely left out of `requirements.txt`
+since the compatibility with your local CUDA is way too tricky to infer.
+Just putting a random version in the requirements would most likely fail.
+That said, the project will only work if PyTorch is properly installed in the
+`banana` environment.
+
+#### Jupyter Kernel
+
 Create an IPython kernel (to use on Jupyter) for the `banana` environment
 with the following command:
 ```shell script
 python -m ipykernel install --user --name banana --display-name "banana"
 ```
+
+#### Unity Environment
 
 Download the Unity environment (supplied by Udacity)
 matching your operating system:

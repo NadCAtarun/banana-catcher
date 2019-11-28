@@ -1,3 +1,6 @@
 ipykernel
 jupyter
+matplotlib
+numpy
+tqdm
 unityagents
